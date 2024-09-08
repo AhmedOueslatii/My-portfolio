@@ -156,7 +156,3 @@ body {
 .tl-item:hover .tl-hover-img {
     opacity: 1; /* Show image on hover */
 }
-@media screen and (max-width: 480px) {
-    body {
-      font-size: 14px;
-    }}
