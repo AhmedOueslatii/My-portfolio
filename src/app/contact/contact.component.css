@@ -1,14 +1,25 @@
-section {
-    padding-top: 4vh;
-    padding-bottom: 4vh; /* Add bottom padding for equal spacing */
-    height: 96vh;
-    margin: 0 10rem;
-    box-sizing: border-box;
-    min-height: fit-content;
+/* Mobile Styles */
+@media (max-width: 768px) {
+  section {
+    margin: 0 1rem; /* Reduce side margins on mobile */
+    padding: 2rem 1rem; /* Adjust padding for smaller screens */
+    height: auto; /* Allow height to adjust based on content */
   }
+
   footer {
-    height: auto; /* Ensure height adjusts based on content */
-    margin: 0; /* Remove any margins */
-    padding:1rem 0; /* Add some padding for spacing */
-    text-align: center; /* Center text alignment */
+    padding: 0.5rem 0; /* Reduce padding for smaller screens */
   }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  section {
+    margin: 0 2rem; /* Slightly reduced margins for tablets */
+    padding: 3rem 2rem; /* Adjust padding for medium screens */
+    height: auto; /* Allow height to adjust based on content */
+  }
+
+  footer {
+    padding: 1rem 0; /* Maintain padding for medium screens */
+  }
+}
