@@ -12,3 +12,7 @@ section {
     padding:1rem 0; /* Add some padding for spacing */
     text-align: center; /* Center text alignment */
   }
+  @media screen and (max-width: 480px) {
+    body {
+      font-size: 14px;
+    }}

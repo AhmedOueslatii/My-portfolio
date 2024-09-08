@@ -5,6 +5,8 @@
   
   body {
     font-family: "Poppins", sans-serif;
+    font-size: 16px; /* Default larger text for mobile */
+    overflow-x: hidden; /* Prevent horizontal scroll */
   }
   
   html {
@@ -24,22 +26,25 @@
   
   /* DESKTOP NAV */
   
-  nav,
+  
   .nav-links {
     display: flex;
+    flex-direction: column;
+  gap: 1rem;
+  font-size: 1.25rem;
+ 
   }
   
   nav {
     justify-content: space-around;
     align-items: center;
     height: 17vh;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
   }
   
-  .nav-links {
-    gap: 2rem;
-    list-style: none;
-    font-size: 1.5rem;
-  }
+  
   
   a {
     color: black;
@@ -65,7 +70,8 @@
   /* HAMBURGER MENU */
   
   #hamburger-nav {
-    display: none;
+   
+    display: block;
   }
   
   .hamburger-menu {
@@ -144,6 +150,8 @@
   /* SECTIONS */
   
   section {
+    margin: 0 5%;
+    padding: 4vh 0;
     padding-top: 4vh;
     height: 96vh;
     margin: 0 10rem;
@@ -155,6 +163,7 @@
   
   .section-container {
     display: flex;
+    flex-direction: column; /* Stack sections vertically */
   }
   
   /* PROFILE SECTION */
@@ -164,7 +173,10 @@
     justify-content: center;
     gap: 5rem;
     height: 80vh;
-
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
   }
   .profile__pic-container {
     display: flex;
@@ -347,7 +359,7 @@
   /*skills*/
   #skills {
     margin: 0; /* Remove margin */
-    padding: 0; /* Remove padding */
+    
     position: relative;
     margin-bottom: 2rem;
     height: 60vh;
@@ -356,13 +368,15 @@
     justify-content: center; /* Center horizontally */
     align-items: center;  
     width: 100vw; /* Full viewport width */
+    height: auto; /* Allow height to grow with content */
+    padding: 2rem;
   }
  
   .skills-container {
     overflow: hidden;
     width: 100%;
     display: flex;
-    
+    flex-direction: column; /* Stack skills vertically */
   justify-content: center; /* Centers the scrolling content horizontally */
   }
   
@@ -410,6 +424,8 @@
     position: relative;
     margin-bottom: 7rem;
      margin: 0 auto; /* Center horizontally */
+     width: 100%;
+
   }
   
   .color-container {
@@ -558,4 +574,10 @@ h3 {
   .email-icon {
     height: 2.5rem;
   }
+  
+  @media screen and (max-width: 768px) {
+    /* Adjust container margins and sizes */
+    section {
+      margin: 0 2rem;
+    }}
   
