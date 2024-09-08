@@ -1,0 +1,158 @@
+section {
+    padding-top: 4vh;
+    padding-bottom: 4vh; /* Add bottom padding for equal spacing */
+    height: 96vh;
+    margin: 0 10rem;
+    box-sizing: border-box;
+    min-height: fit-content;
+  }
+  
+  .section-container {
+    display: flex;
+  }
+body {
+    font-family: 'Source Sans Pro', Helvetica Neue, Helvetica, Arial, sans-serif; 
+    font-size: 12px;
+    line-height: 1.75;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+#timeline {
+    display: flex;
+    justify-content: center; /* Center the timeline items horizontally */
+    align-items: center; /* Center items vertically if needed */
+    width: 100vw; /* Full viewport width */
+    background-color: #031625;
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    padding: 0; /* Remove padding */
+    box-sizing: border-box;
+    position: relative;
+    margin: 0 auto; /* Center the container */
+}
+
+.tl-item {
+    transform: translate3d(0, 0, 0);
+    position: relative;
+    width: 25%; /* Adjust as needed */
+    min-height: 600px;
+    color: #fff;
+    overflow: hidden;
+    transition: width 0.5s ease;
+    flex: 0 0 auto; /* Prevent shrinking */
+}
+
+.tl-item:hover {
+    width: 30% !important;
+}
+
+.tl-item:before, .tl-item:after {
+    transform: translate3d(0, 0, 0);
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+}
+
+.tl-item:after {
+    background: rgba(3, 22, 37, 0.15);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.tl-item:before {
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 75%);
+    z-index: 1;
+    opacity: 0;
+    transform: translate3d(0, 0, 0) translateY(50%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tl-item:hover:after {
+    opacity: 0;
+}
+
+.tl-item:hover:before {
+    opacity: 0; /* Hide the black gradient on hover */
+    transform: translate3d(0, 0, 0) translateY(0); /* Reset transform */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tl-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin: 0 1.618em;
+    top: 55%;
+    opacity: 0;
+    transition: opacity 0.75s ease 0.5s, transform 0.75s ease;
+}
+
+.tl-item:hover .tl-content {
+    opacity: 1;
+    transform: translateY(0);
+    top: 50%; /* Move content to the bottom part */
+}
+
+.tl-bg {
+    transform: translate3d(0, 0, 0);
+    position: absolute;
+    width: 100%; height: 100%;
+    top: 0; left: 0;
+    background-size: cover;
+    background-position: center center;
+    transition: filter 0.5s ease;
+    filter: grayscale(100%);
+}
+
+.tl-item:hover .tl-bg {
+    filter: grayscale(0);
+}
+
+.tl-year {
+    position: absolute;
+    top: 10%; /* Adjusted to create more space at the top */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    text-align: center;
+    width: 100%; /* Ensure full width for text alignment */
+}
+
+.tl-year p {
+    font-family: 'Pathway Gothic One', Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 1.728rem;
+    line-height: 1.5; /* Increased line-height to avoid overlap */
+    margin: 0; /* Removed default margins */
+}
+
+/* Make the title invisible on hover */
+.tl-item:hover .tl-year {
+    opacity: 0; /* Make the title invisible on hover */
+    transition: opacity 0.5s ease; /* Smooth transition */
+}
+
+/* Ensure the tl-year is visible by default */
+.tl-year {
+    opacity: 1; /* Visible by default */
+    transition: opacity 0.5s ease;
+}
+
+/* Styles for the hover image */
+.tl-hover-img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%; /* Cover the lower half */
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0; /* Ensure it appears below other content */
+}
+
+.tl-item:hover .tl-hover-img {
+    opacity: 1; /* Show image on hover */
+}

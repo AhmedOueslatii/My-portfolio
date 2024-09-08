@@ -1,0 +1,14 @@
+section {
+    padding-top: 4vh;
+    padding-bottom: 4vh; /* Add bottom padding for equal spacing */
+    height: 96vh;
+    margin: 0 10rem;
+    box-sizing: border-box;
+    min-height: fit-content;
+  }
+  footer {
+    height: auto; /* Ensure height adjusts based on content */
+    margin: 0; /* Remove any margins */
+    padding:1rem 0; /* Add some padding for spacing */
+    text-align: center; /* Center text alignment */
+  }
