@@ -1,0 +1,43 @@
+name: Build and Deploy Angular App
+
+on:
+  push:
+    branches: [ main ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # Setup Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Build the project
+      - name: Build
+        run: npm run build -- --configuration production --base-href=/My-portfolio/
+
+      # Copy the index.html to 404.html to handle client-side routing
+      - name: Copy index.html to 404.html
+        run: cp dist/my-portfolio/index.html dist/my-portfolio/404.html
+
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist/my-portfolio # The folder the action should deploy
+          branch: gh-pages # The branch the action should deploy to
+          clean: true # Automatically remove deleted files from the deployment branch
